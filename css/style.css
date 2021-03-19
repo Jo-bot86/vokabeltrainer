@@ -1,0 +1,118 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* First grid */
+
+body {
+		display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 17px;
+    font-family: sans-serif;
+}
+header {
+	background-color: lightblue;
+	grid-column: 1 / end;
+	grid-row: 1;
+}
+main {
+	grid-column: 1 / -2;
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	/*grid-template-areas:
+	    'a b c d e'
+	    'f g h i j'
+	    'k l m n o';*/
+	background-color: lightseagreen;
+}
+aside {
+	background-color: lightyellow;
+	grid-column: -2 / end;
+}
+footer {
+	grid-column: 1 / end;
+	background-color: lightpink;
+}
+
+/* Second grid */
+	
+#input {
+	grid-column: 1;
+	display: flex;
+	flex-flow: column;
+}
+#input input {
+	height: 2vh;
+	width: 12vh;
+	margin-right: 1vh;
+}
+#voc-table {
+	grid-column: 2;
+	background-color: lightgrey;
+}
+#table-controls {
+	grid-column: 4;
+	display: flex;
+	flex-flow: column;
+}
+
+/* table */
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table th, td {
+    padding: 15px;
+    text-align: left;
+
+}
+
+/* responsive */
+
+@media (max-width: 800px) {
+    body, main {
+        grid-template-columns: none;
+    }
+    header {
+    	grid-column: 1;
+    	grid-row: 1;
+    }
+    aside {
+    	grid-column: 1;
+    	grid-row: 2 / 3;
+    }
+    main {
+    	grid-column: 1;
+    	grid-row: 3 / 4;
+    }
+    footer {
+    	grid-column: 1;
+    	grid-row: 4 / 5;
+    }
+}
+
+/* Popup container */
+.popup-anchor {
+	position: relative;
+	display: inline-block;
+}
+
+/* The actual popup (appears on top) */
+.popup {
+	visibility: hidden;
+	width: 160px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 8px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -80px;
+}
